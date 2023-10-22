@@ -18,6 +18,7 @@ board: board_type = [
 
 
 def solve(bo: board_type) -> bool:
+    '''solves the board and return True if solved'''
     find = find_empty(bo)
 
     if not find:
@@ -38,6 +39,8 @@ def solve(bo: board_type) -> bool:
 
 
 def valid(bo: board_type, num: int, pos: pos_type) -> bool:
+    '''check if the num is valid at position pos = (row,col)'''
+
     # check row
     for i in range(len(bo[0])):
         if bo[pos[0]][i] == num and pos[1] != i:
@@ -61,7 +64,7 @@ def valid(bo: board_type, num: int, pos: pos_type) -> bool:
 
 
 def print_board(bo: board_type) -> None:
-
+    '''print board'''
     for i in range(len(bo)):
         if i % 3 == 0 and i != 0:
             print("---------------------")
@@ -78,6 +81,7 @@ def print_board(bo: board_type) -> None:
 
 
 def find_empty(bo: board_type) -> pos_type:
+    '''return index for next empty value in format (row,col)'''
     for i in range(len(bo)):
         for j in range(len(bo[0])):
             if bo[i][j] == 0:
@@ -87,6 +91,7 @@ def find_empty(bo: board_type) -> pos_type:
 
 
 def main():
+    '''main function'''
     global board
     print_board(board)
     solve(board)
